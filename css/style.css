@@ -1,0 +1,338 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+}
+
+#container_corpo{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+}
+
+nav{
+    display:flex;
+    justify-content: top;
+    align-items: center;
+    padding:20px;
+    flex-direction: column;
+    width: 15%;
+    gap: 50px;
+    min-height: 100vh;
+    background-color: #2c87ff;
+    position: fixed;
+}
+
+nav ul{
+    display:flex;
+    flex-direction: column;
+    gap: 48px;
+    list-style: none;
+    color:white;
+    text-align: center;
+    font-size: 15px;
+}
+
+header{
+    display:flex;
+    background-color: #555555;
+    height: 5vh;
+    width: 85vw;
+}
+
+#container_conteudo{
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    width: 85vw;
+    margin-left: 15vw;
+}
+
+#container_vagas{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 70vh;
+    gap: 30px;
+    transition: all .4s;
+}
+
+.container_fundo_vagas{
+    display: flex;
+    width: 100%;
+    padding:50px;
+    justify-content: center;
+    background-color: #2c87ff;
+    border-radius: 10px;
+    border:solid 5px #cccaca;
+}
+
+.visualizacao_codigo_vaga{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.caixa_form_codigo_vaga{
+    display: flex;
+    width: 100%;
+}
+
+.header_codigo_vaga{
+    width: 100%;
+    height: 20px;
+    background-color: #D3D3D6;
+    border-radius: 5px 5px 0 0 ;
+}
+
+.barra_lateral_codigo_vaga{
+    display: flex;
+    height: 100%;
+    width:5%;
+    background-color: #555555;
+    border-bottom-left-radius: 5px;
+}
+
+.corpo_codigo_vaga{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width:100%;
+    padding:20px 10px;
+    background-color: #EDEDED;
+    gap: 20px;
+    border-bottom-right-radius: 5px;
+}
+
+.corpo_codigo_vaga p{
+    display: flex;
+    align-items: left;
+}
+
+#form_codigo_vaga{
+    display: flex;
+    flex-direction: column;
+}
+
+#form_codigo_vaga input{
+    width: 600px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+#btn_cadastro_vagas{
+    background-color: #2c87ff;
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+}
+
+.tbl_visualizar{
+    display: flex;
+    min-width: 600px;
+    border-radius: 10px;
+}
+
+.tbl_visualizar tr{
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    border: solid 1px black;
+}
+
+.tbl_visualizar tr td{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    min-width: 150px;
+    text-align: center;
+}
+
+/* valores */
+
+#container_valores{
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 70vh;
+    gap: 30px;
+    transition: all .4s;
+}
+
+#form_valores{
+    display: flex;
+    flex-direction: column;
+}
+
+#form_valores input{
+    width: 600px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+#btn_cadastro_valores{
+    background-color: #2c87ff;
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+}
+
+/* clientes */
+
+#container_cliente{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 70vh;
+    gap: 30px;
+    transition: all .4s;
+}
+
+#form_cliente{
+    display: flex;
+    flex-direction: column;
+}
+
+#form_cliente input{
+    width: 600px;
+    height: 30px;
+    border-radius: 5px;
+    
+}
+
+#btn_cadastro_cliente{
+    background-color: #2c87ff;
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+}
+
+.fundo_modal{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.692);
+    z-index: 999;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_relatorio{
+    display: flex;
+    width: 35vw;
+    height: 90vh;
+    background-color: white;
+    position: absolute;
+    z-index: 999;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.trFuncional{
+    display: flex;
+    width: 100%;
+}
+
+#table_vaga, #table_cliente{
+    display: flex;
+    flex-direction: column;
+}
+
+.td{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+}
+
+.atualizar{
+    width: 20px;
+    height: 20px;
+}
+
+.divFuncional{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 10px;
+    width:100%;
+    margin: 0 auto;
+}
+
+.div{
+    display: flex;
+    min-height: 50px;
+    justify-content:center;
+    align-items: center;
+    min-width: 300px;
+}
+
+#visualizar_comprovante{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+#container_relatorios{
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 50px;
+}
+
+.btn_relatorios{
+    display: flex;
+    width: 300px;
+    height: 100px;
+    background-color: #2c87ff;
+    border-radius: 20px;
+    color: white;
+    justify-content:center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#btn_fechar_modal{
+    width: 100px;
+    height: 50px;
+    background-color: #2c87ff;
+    border-radius: 10px;
+    color: white;
+}
+

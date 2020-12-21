@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastParking</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="container_corpo">
+        <nav>
+            <img src="img/log_fast.png" alt="">
+            <ul>
+                <li>
+                    <h1><a href="clientes.html">Entrada/Saída</a></h1>
+                </li>
+                <li>
+                    <h1><a href="index.html">Relatório</a></h1>
+                </li>
+            </ul>
+        </nav>  
+        <div id="container_conteudo">
+            <header>
+                <p>
+                    
+                </p>
+            </header>
+            <div id="container_cliente">
+                <div class="container_fundo_vagas">
+                    <div class="visualizacao_codigo_vaga">
+                        <div class="header_codigo_vaga">
+
+                        </div>
+                        <div class="caixa_form_codigo_vaga">
+                            <div class="barra_lateral_codigo_vaga">
+
+                            </div>
+                            <div class="corpo_codigo_vaga alinhamento">
+                                <p>
+                                    Nome do cliente:
+                                </p>
+                                <form action="" id="form_cliente">
+                                    <input type="text" name="codVaga" id="input_nome_cliente">
+                                </form>
+                                <p>
+                                    Placa do veículo:
+                                </p>
+                                <form action="" id="form_cliente">
+                                    <input type="text" name="codVaga" id="input_placa">
+                                </form>
+                                <button id="btn_cadastro_cliente" onclick="createCliente()">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container_fundo_vagas">
+                    <div class="visualizacao_codigo_vaga">
+                        <div class="header_codigo_vaga">
+
+                        </div>
+                        <div class="caixa_form_codigo_vaga">
+                            <div class="barra_lateral_codigo_vaga">
+
+                            </div>
+                            <div class="corpo_codigo_vaga">
+                                <table class="tbl_visualizar" id="table_cliente">
+                                    <tr class="trFuncional">
+                                        <td class="td">
+                                            <h4>Nome</h4>
+                                        </td>
+                                        <td class="td">
+                                            <h4>Placa</h4>
+                                        </td>
+                                        <td class="td">
+                                            <h4>Estacionado</h4>
+                                        </td>
+                                        <td class="td">
+                                            <h4>Hora/Entrada</h4>
+                                        </td>
+                                        <td class="td">
+                                            <h4>Hora/Saída</h4>
+                                        </td>
+                                        <td class="td">
+                                            <h4>Valor/Pagar</h4>
+                                        </td>
+                                        <td class="td">
+                                            <h4>Opções</h4>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <div class="fundo_modal alinhamento">
+            <div class="modal_relatorio alinhamento">
+                <h1>Comprovante de Entrada</h1>
+                <div id="visualizar_comprovante">
+                    <div class="divFuncional">
+                        <div class="div">
+                            <h4>Nome</h4>
+                        </div>
+                        <div class="div">
+                            <h4>Placa</h4>
+                        </div>
+                        <div class="div">
+                            <h4>Hora/Entrada</h4>
+                        </div>
+                        <div class="div">
+                            <h4>Opções</h4>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="closeModal()" id="btn_fechar_modal">FECHAR</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

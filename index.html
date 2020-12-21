@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastParking</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="container_corpo">
+        <nav>
+            <img src="img/log_fast.png" alt="">
+            <ul>
+                <li>
+                    <h1><a href="clientes.html">Entrada/Saída</a></h1>
+                </li>
+                <li>
+                    <h1><a href="#">Relatório</a></h1>
+                </li>
+            </ul>
+        </nav>  
+        <div id="container_conteudo">
+            <header>
+                <p>
+                    
+                </p>
+            </header>
+            <div id="container_relatorios" class="alinhamento">
+                <div class="btn_relatorios alinhamento" onclick="relatorioDiario(), modal()"><h2>Relatório Diário</h2></div>
+                <div class="btn_relatorios alinhamento" onclick="relatorioMensal(), modal()"><h2>Relatório Mensal</h2></div>
+                <div class="btn_relatorios alinhamento" onclick="relatorioAnual(), modal()"><h2>Relatório Anual</h2></div>
+            </div>    
+        </div>
+        <div class="fundo_modal alinhamento">
+            <div class="modal_relatorio alinhamento">
+                <h1>Relatorio Diário</h1>
+                <div id="visualizar_comprovante">
+                    <div class="divFuncional">
+                        <div class="div">
+                            <h1>Valor</h1>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="closeModal()" id="btn_fechar_modal">FECHAR</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
