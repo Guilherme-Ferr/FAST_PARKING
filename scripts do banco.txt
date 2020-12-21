@@ -1,0 +1,138 @@
+create database dbestacionamento;
+use dbestacionamento;
+
+
+###################################### CRIAÇÃO DAS TABELAS ###############################
+create table tblvalores(
+	idValor int not null auto_increment primary key,
+    valor decimal not null
+);
+create table tblvagas(
+	idVaga int not null auto_increment primary key,
+    codigoVaga varchar(10) not null,
+    disponibilidade boolean
+);
+create table tblentradaSaidaCliente(
+	idEntradaSaidaCliente int not null auto_increment primary key,
+	nomeCliente varchar(80) not null, 
+	numeroPlacaVeiculo varchar(20) not null,
+    dataHorarioEntrada datetime not null,
+    horarioSaida datetime null,
+    diferenca int,
+    
+    idVaga int not null,
+	constraint FK_Vagas_EntradaSaida
+    foreign key (idVaga)
+    references tblvagas(idVaga),
+    
+    idValor int null,
+    constraint FK_Valores_EntradaSaida
+    foreign key (idValor)
+    references tblvalores(idValor)
+);
+
+
+
+
+
+
+
+
+
+
+##################################### INSERÇÃO DE VALORES ####################################
+insert into tblvalores(valor)
+				values('15.00'),
+				      ('30.00');
+
+insert into tblvagas(disponibilidade)
+			  values(0),
+					(1);
+
+insert into tblentradaSaidaCliente(nomeCliente, numeroPlacaVeiculo, dataHorarioEntrada, idVaga, idValor, diferenca) 
+						    values('Pedroca', 'BRA0S17', current_timestamp(), 1, 1, 1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+######################################### PROCEDURES #######################################
+
+DELIMITER $$
+create procedure procRendimentoDiario()
+begin
+
+	select concat('R$ ', count(tblentradaSaidaCliente.idValor) * tblvalores.valor) as rendimentoDiario
+	from tblentradaSaidaCliente, tblvalores 
+	where tblentradaSaidaCliente.idValor = tblvalores.idValor  
+	and tblentradaSaidaCliente.dataHorarioEntrada like concat("%", date_format(current_date(), "%Y-%m-%d"), "%");
+
+end$$
+
+DELIMITER $$
+create procedure procRendimentoMensal()
+begin
+
+	select concat('R$ ', count(tblentradaSaidaCliente.idValor) * tblvalores.valor) as rendimentoMensal
+	from tblentradaSaidaCliente, tblvalores 
+	where tblentradaSaidaCliente.idValor = tblvalores.idValor  
+	and tblentradaSaidaCliente.dataHorarioEntrada like concat("%", date_format(current_date(), "%Y-%m"), "%");
+
+end$$
+
+DELIMITER $$
+create procedure procRendimentoAnual()
+begin
+
+	select concat('R$ ', count(tblentradaSaidaCliente.idValor) * tblvalores.valor) as rendimentoAnual
+	from tblentradaSaidaCliente, tblvalores 
+	where tblentradaSaidaCliente.idValor = tblvalores.idValor  
+	and tblentradaSaidaCliente.dataHorarioEntrada like concat("%", date_format(current_date(), "%Y"), "%");
+
+end$$
+
+
+DELIMITER $$
+create procedure procSaidaCliente(idEntradaSaidaCliente int)
+begin
+     
+	update tblentradaSaidaCliente
+		set tblentradaSaidaCliente.horarioSaida = current_timestamp()
+		where tblentradaSaidaCliente.idEntradaSaidaCliente = idEntradaSaidaCliente;
+		
+		  
+	update tblentradaSaidaCliente 
+		set diferenca = hour(timediff(horarioSaida, dataHorarioEntrada)),
+		tblentradaSaidaCliente.idVaga = 2,
+		tblentradaSaidaCliente.idValor = idValor
+		where tblentradaSaidaCliente.idEntradaSaidaCliente = idEntradaSaidaCliente;
+end$$
+
+
+DELIMITER $$
+create procedure procSaidaCliente(idEntradaSaidaCliente int)
+begin
+     
+	select tblentradaSaidaCliente.idEntradaSaidaCliente as Ticket, 
+    tblentradaSaidaCliente.nomeCliente as Nome, 
+	tblentradaSaidaCliente.numeroPlacaVeiculo as Placa, 
+	tblentradaSaidaCliente.dataHorarioEntrada as Entrada
+	from tblentradaSaidaCliente, tblvalores
+	where tblentradaSaidaCliente.idValor = tblvalores.idValor;
+
+
+end$$
+
